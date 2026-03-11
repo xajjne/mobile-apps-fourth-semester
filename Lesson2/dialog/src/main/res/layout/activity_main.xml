@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dialog App"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Самостоятельная работа"
+        android:textSize="18sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/buttonShowDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show AlertDialog"
+        android:onClick="onClickShowDialog"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show TimePickerDialog"
+        android:onClick="onClickShowTimePicker"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show DatePickerDialog"
+        android:onClick="onClickShowDatePicker"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show ProgressDialog"
+        android:onClick="onClickShowProgress"
+        android:padding="16dp"
+        android:layout_marginBottom="40dp"/>
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результат выбора появится здесь"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"/>
+
+</LinearLayout>
