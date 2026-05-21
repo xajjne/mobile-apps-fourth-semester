@@ -13,6 +13,26 @@
         <item
             android:id="@+id/nav_browser"
             android:title="Browser" />
+
+        <item
+            android:id="@+id/nav_sensor"
+            android:title="Sensors" />
+
+        <item
+            android:id="@+id/nav_camera"
+            android:title="Camera" />
+
+        <item
+            android:id="@+id/nav_microphone"
+            android:title="Microphone" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_files"
+            android:title="Files" />
     </group>
 
 </menu>

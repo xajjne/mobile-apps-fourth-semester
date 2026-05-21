@@ -7,6 +7,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -42,19 +43,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .commit();
+            openFragment(new HomeFragment(), "Home");
             navigationView.setCheckedItem(R.id.nav_home);
-            setTitle("Home");
         }
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                if (drawerLayout.isDrawerOpen(androidx.core.view.GravityCompat.START)) {
-                    drawerLayout.closeDrawer(androidx.core.view.GravityCompat.START);
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
                 } else {
                     finish();
                 }
@@ -62,33 +59,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
+    private void openFragment(Fragment fragment, String title) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+        setTitle(title);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-        String title = "";
-
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            fragment = new HomeFragment();
-            title = "Home";
+            openFragment(new HomeFragment(), "Home");
         } else if (id == R.id.nav_data) {
-            fragment = new DataFragment();
-            title = "Data";
+            openFragment(new DataFragment(), "Data");
         } else if (id == R.id.nav_browser) {
-            fragment = new WebViewFragment();
-            title = "Browser";
+            openFragment(new WebViewFragment(), "Browser");
+        } else if (id == R.id.nav_sensor) {
+            openFragment(new SensorFragment(), "Sensors");
+        } else if (id == R.id.nav_camera) {
+            openFragment(new CameraFragment(), "Camera");
+        } else if (id == R.id.nav_microphone) {
+            openFragment(new MicrophoneFragment(), "Microphone");
+        } else if (id == R.id.nav_profile) {
+            openFragment(new ProfileFragment(), "Profile");
+        } else if (id == R.id.nav_files) {
+            openFragment(new FilesFragment(), "Files");
         }
 
-        if (fragment != null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
-            setTitle(title);
-        }
-
-        drawerLayout.closeDrawer(androidx.core.view.GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

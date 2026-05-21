@@ -10,6 +10,11 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     defaultConfig {
         applicationId = "com.mirea.zolotovskiyas.mireaproject"
         minSdk = 26
